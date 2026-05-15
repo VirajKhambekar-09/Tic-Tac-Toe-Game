@@ -18,11 +18,11 @@ function App() {
   function handleClick(index) {
     if (squares[index] || winner) return;
 
-    const newSquares = [...squares];
+    const nextSquares = [...squares];
 
-    newSquares[index] = xIsNext ? "X" : "O";
+    nextSquares[index] = xIsNext ? "X" : "O";
 
-    setSquares(newSquares);
+    setSquares(nextSquares);
     setXIsNext(!xIsNext);
   }
 
@@ -38,7 +38,7 @@ function App() {
   } else if (isDraw) {
     status = "It's a Draw!";
   } else {
-    status = `Current Turn: ${xIsNext ? "X" : "O"}`;
+    status = `Turn: ${xIsNext ? "X" : "O"}`;
   }
 
   return (
@@ -54,7 +54,7 @@ function App() {
         </button>
       </div>
 
-      <div className="status">{status}</div>
+      <p className="status">{status}</p>
 
       <Board squares={squares} onClick={handleClick} />
 
@@ -79,8 +79,8 @@ function calculateWinner(squares) {
     [2, 4, 6],
   ];
 
-  for (let line of lines) {
-    const [a, b, c] = line;
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
 
     if (
       squares[a] &&
