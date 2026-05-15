@@ -11,12 +11,15 @@ function App() {
   }, [darkMode]);
 
   const winner = calculateWinner(squares);
-  const isDraw = !winner && squares.every((square) => square !== null);
+
+  const isDraw =
+    !winner && squares.every((square) => square !== null);
 
   function handleClick(index) {
     if (squares[index] || winner) return;
 
     const newSquares = [...squares];
+
     newSquares[index] = xIsNext ? "X" : "O";
 
     setSquares(newSquares);
@@ -40,7 +43,16 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Tic Tac Toe</h1>
+      <div className="top-bar">
+        <h1>Tic Tac Toe</h1>
+
+        <button
+          className="theme-btn"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
+      </div>
 
       <div className="status">{status}</div>
 
@@ -48,13 +60,6 @@ function App() {
 
       <button className="reset-btn" onClick={resetGame}>
         Reset Game
-      </button>
-
-      <button
-        className="theme-btn"
-        onClick={() => setDarkMode(!darkMode)}
-      >
-        {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
     </div>
   );
@@ -65,9 +70,11 @@ function calculateWinner(squares) {
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
+
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
+
     [0, 4, 8],
     [2, 4, 6],
   ];
