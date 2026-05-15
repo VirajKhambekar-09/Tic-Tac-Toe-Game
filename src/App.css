@@ -2,44 +2,37 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
+  background: linear-gradient(to right, #141e30, #243b55);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #141e30, #243b55);
   color: white;
 }
 
 .app {
   text-align: center;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 40px;
-  border-radius: 24px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
-  font-size: 48px;
   margin-bottom: 20px;
-  letter-spacing: 1px;
+  font-size: 42px;
 }
 
 .status {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 22px;
-  font-weight: 600;
-  color: #00e5ff;
+  font-weight: bold;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 110px);
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
   margin-bottom: 25px;
 }
@@ -48,54 +41,31 @@ h1 {
   width: 110px;
   height: 110px;
   border: none;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  border-radius: 12px;
   font-size: 42px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
+  background: white;
+  color: #243b55;
+  transition: 0.3s;
 }
 
 .square:hover {
-  transform: translateY(-4px) scale(1.03);
-  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  background: #f1f1f1;
 }
 
 .reset-btn {
-  padding: 14px 30px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border-radius: 10px;
+  background: #00b894;
   color: white;
   font-size: 18px;
-  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .reset-btn:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-@media (max-width: 500px) {
-  .app {
-    padding: 25px;
-  }
-
-  .board {
-    grid-template-columns: repeat(3, 90px);
-  }
-
-  .square {
-    width: 90px;
-    height: 90px;
-    font-size: 34px;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
+  background: #019875;
 }
